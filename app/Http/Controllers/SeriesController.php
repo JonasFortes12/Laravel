@@ -23,18 +23,21 @@ class SeriesController extends Controller
             'Better Call Saul'
         ];
 
-        $html = '<ul>';
-        foreach ($series as $serie){
-            $html .= "<li>$serie</li>";
-        }
-        $html .= '</ul>';
+
+        return view('series.index', compact('series'));
 
         /* The function 'redirect' redirect to any address parsed as parameter */
-        //return redirect('https://google.com');
+//        return redirect('https://google.com');
 
-        return response($html);
-        // or just return $html
 
+//        return response($html);
+//         or just return $html
+
+    }
+
+    public function create(Request $request)
+    {
+        return view('series.create');
     }
 }
 
