@@ -1,0 +1,25 @@
+warning: LF will be replaced by CRLF in app/Http/Controllers/SeriesController.php.
+The file will have its original line endings in your working directory
+[1mdiff --cc app/Http/Controllers/SeriesController.php[m
+[1mindex 4d09237,e26f002..0000000[m
+[1m--- a/app/Http/Controllers/SeriesController.php[m
+[1m+++ b/app/Http/Controllers/SeriesController.php[m
+[36m@@@ -47,12 -25,10 +25,10 @@@[m [mclass SeriesController extends Controll[m
+  [m
+      public function store(Request $request)[m
+      {[m
+[31m-         $serieName = $request->input('name');[m
+[31m-         if (DB::insert('INSERT INTO series (name) VALUES (?)', [$serieName])) {[m
+[31m-             return 'OK';[m
+[31m-         } else {[m
+[31m-             return 'ERRO';[m
+[31m-         }[m
+[32m+ //      mass assigment[m
+[32m+         Serie::create($request->all());[m
+[32m+ [m
+[31m -        return to_route('series.index');[m
+[32m++        return redirect();[m
+  [m
+      }[m
+  }[m
+* Unmerged path app/Models/Serie.php
